@@ -32,10 +32,9 @@ int main() {
     printf("\n  : ");
     scanf("%d", &profit_caused);
     if(profit_caused > 100000) profit = 1 ;
-    printf("\n Enter your previous year salary : ");
-    scanf("%d", &salary);
     
-    int  Check =  EmployeeCheck( year1 ,  research ,  project ,  profit, salary);
+    
+    int  Check =  EmployeeCheck( year1 ,  research ,  project ,  profit, &salary);
     if(Check){
         printf("\n You qualify for bonus!! \n");
         printf("\n Your New yearly salary is %d !! ", salary);
@@ -53,8 +52,60 @@ int  EmployeeCheck(bool  year1 , bool  research , bool  project , bool profit, i
     if (profit) check++;
     
     if(check >= 3 ){
+    printf("\n Enter your previous year salary : ");
+    scanf("%d", salary);
     *salary = *salary * 0.2 + *salary ;
      return 1; 
     }else return 0 ; 
     
 }
+
+/*
+OUTPUT -->
+
+ Have You Completed 1 year in this company : 
+1) Yes
+2) No
+  : 1
+
+ How many research projects Have You Completed : 
+  : 2
+
+ Do you have any new research project in pipeline : 
+1) Yes
+2) No
+  : 1
+
+ How much profit have you caused for the company : 
+  : 100
+
+ Enter your previous year salary : 100000
+
+ You qualify for bonus!! 
+
+ Your New yearly salary is 120000 !! 
+
+=== Code Execution Successful ===
+
+
+
+ Have You Completed 1 year in this company : 
+1) Yes
+2) No
+  : 2
+
+ How many research projects Have You Completed : 
+  : 0
+
+ Do you have any new research project in pipeline : 
+1) Yes
+2) No
+  : 2
+
+ How much profit have you caused for the company : 
+  : 0
+
+ You dont qualify for bonus
+
+=== Code Execution Successful ===
+*/
